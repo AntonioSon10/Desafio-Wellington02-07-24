@@ -1,0 +1,72 @@
+Faça um programa que faça 5 perguntas para 
+
+uma pessoa sobre um crime. As perguntas são:
+
+“Telefonou para a vítima? “
+
+“Esteve no local do crime?”
+
+“Mora perto da vítima? “
+
+“Devia para a vítima? “
+
+“Já trabalhou com a vítima? “
+
+O programa deve no final emitir uma 
+
+classificação sobre a participação da pessoa no 
+
+crime. Se a pessoa responder positivamente a 2 
+
+questões ela deve ser classificada como 
+
+“Suspeita”, entre 3 e 4 como “Cúmplice” e 5 
+
+como “Assassino“. Caso contrário, ele será 
+
+classificado como “Inocente“
+
+
+
+import java.util.Scanner;
+
+public class ClassificacaoCrime {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Responda as perguntas com S para sim ou N para não.");
+        System.out.print("Telefonou para a vítima? ");
+        char resp1 = scanner.next().charAt(0);
+
+        System.out.print("Esteve no local do crime? ");
+        char resp2 = scanner.next().charAt(0);
+
+        System.out.print("Mora perto da vítima? ");
+        char resp3 = scanner.next().charAt(0);
+
+        System.out.print("Devia para a vítima? ");
+        char resp4 = scanner.next().charAt(0);
+
+        System.out.print("Já trabalhou com a vítima? ");
+        char resp5 = scanner.next().charAt(0);
+
+        int cont = 0;
+        if (resp1 == 'S') cont++;
+        if (resp2 == 'S') cont++;
+        if (resp3 == 'S') cont++;
+        if (resp4 == 'S') cont++;
+        if (resp5 == 'S') cont++;
+
+        if (cont == 2) {
+            System.out.println("Suspeita");
+        } else if (cont >= 3 && cont <= 4) {
+            System.out.println("Cúmplice");
+        } else if (cont == 5) {
+            System.out.println("Assassino");
+        } else {
+            System.out.println("Inocente");
+        }
+
+        scanner.close();
+    }
+}
